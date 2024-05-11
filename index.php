@@ -30,7 +30,8 @@ require_once("php_config/config.php");
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <!-- fonts -->
       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
-   </head>
+   
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script></head>
    <body>
       <!-- header top section start -->
       <div class="header_top_section">
@@ -51,14 +52,14 @@ require_once("php_config/config.php");
       <div class="header_section">
          <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-               <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+               <div class="logo"><a href="index.php"><img src="images/logo.png"></a></div>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto">
                      <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="services.html">Services</a>
@@ -83,10 +84,10 @@ require_once("php_config/config.php");
                      <div class="login_text">
                         <ul>
                            <li><a href="#">Login</a></li>
+                            <!-- go to the user's account -->
                            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                         </ul>
                      </div>
-                     <div class="quote_btn"><a href="#">Get A Quote</a></div>
                   </form>
                </div>
             </nav>
@@ -160,6 +161,7 @@ require_once("php_config/config.php");
          <div class="container-fluid">
             <div class="row">
                <div class="col-sm-12">
+                   <!-- Services will be taken from the database -->
                   <h1 class="services_taital">Our Services</h1>
                   <p class="services_text_1">ssages of Lorem Ipsum available, but the majority have suffered alteration</p>
                </div>
@@ -224,190 +226,119 @@ require_once("php_config/config.php");
       </div>
       <!-- about sectuion end -->
       <!-- projects section start -->
-      <div class="projects_section layout_padding">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <h1 class="projects_taital">Projects</h1>
-                  <div class="nav-tabs-navigation">
-                     <div class="nav-tabs-wrapper">
-                        <ul class="nav " data-tabs="tabs">
-                           <li class="nav-item">
-                              <a class="nav-link active" href="#" data-toggle="tab">Category  filter</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link " href="#" data-toggle="tab">All</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link " href="#" data-toggle="tab">Paintingl</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link " href="#" data-toggle="tab">Reconstructionl</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link " href="#" data-toggle="tab">Repairsl</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link " href="#" data-toggle="tab">Residentall</a>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
+      <?php
+$arr = [["Home1","Desc1","contact.php"],["Home2","Desc2"],["Home3","Desc3"],
+        ["Home4","Desc4"],["Home5","Desc5"],["Home6","Desc6"],
+        ["Home7","Desc7"],["Home8","Desc8"],["Home9","Desc9"]
+       ];
+$i = 1; 
+
+?>
+
+<div class="projects_section_2 layout_padding">
+    <div class="container">
+        <div class="pets_section">
+            <div class="pets_section_2">
+                <div id="main_slider" class="carousel slide" data-ride="carousel">
+                    <!-- Executed only the first time-->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <?php
+                                 foreach ($arr as $elem) {
+                                       if ($i % 3 == 1 && $i != 1) {
+                                          ?>
+                                          </div> <!-- Close the row -->
+                                       </div> <!-- Close the previous carousel-item -->
+                                       <div class="carousel-item"> <!-- Start a new carousel-item -->
+                                          <div class="row">
+                                          <?php
+                                       }
+                                       ?>
+                                       <div class="col-md-4">
+                                          <div class="container_main">
+                                             <img src="images/img-1.png" alt="" class="image" >
+                                             <div class="overlay">
+                                                   <div class="text">
+                                                      <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
+                                                   </div>
+                                             </div>
+                                          </div>
+                                          <div class="project_main">
+                                             <h2 class="work_text"><?php echo $elem[0] ?></h2>
+                                             <p class="dummy_text"><?php echo $elem[1] ?></p>
+                                          </div>
+                                       </div>
+                                       <!-- Modal -->
+   <div class="modal" id="myModal<?php echo $i?>">
+      <div class="modal-dialog">
+         <div class="modal-content">
+
+               <!-- Modal Header -->
+               <div class="modal-header">
+                  <h4 class="modal-title">Confirmation</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
                </div>
-            </div>
-         </div>
-         <div class="projects_section_2 layout_padding">
-            <div class="container">
-               <div class="pets_section">
-                  <div class="pets_section_2">
-                     <div id="main_slider" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                           <div class="carousel-item active">
-                              <div class="row">
-                                 <div class="col-md-4">
-                                    <div class="container_main">
-                                       <img src="images/img-1.png" alt="" class="image">
-                                       <div class="overlay">
-                                          <div class="text">
-                                             <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="project_main">
-                                       <h2 class="work_text">Home Work</h2>
-                                       <p class="dummy_text">alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use</p>
-                                    </div>
-                                 </div>
-                                 <div class="col-md-4">
-                                    <div class="container_main">
-                                       <img src="images/img-2.png" alt="" class="image">
-                                       <div class="overlay">
-                                          <div class="text">
-                                             <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="project_main">
-                                       <h2 class="work_text">Home Work</h2>
-                                       <p class="dummy_text">alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use</p>
-                                    </div>
-                                 </div>
-                                 <div class="col-md-4">
-                                    <div class="container_main">
-                                       <img src="images/img-3.png" alt="" class="image">
-                                       <div class="overlay">
-                                          <div class="text">
-                                             <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="project_main">
-                                       <h2 class="work_text">Home Work</h2>
-                                        <p class="dummy_text">alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use</p>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="carousel-item">
-                              <div class="row">
-                                 <div class="col-md-4">
-                                    <div class="container_main">
-                                       <img src="images/img-1.png" alt="" class="image">
-                                       <div class="overlay">
-                                          <div class="text">
-                                             <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="project_main">
-                                       <h2 class="work_text">Home Work</h2>
-                                       <p class="dummy_text">alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use</p>
-                                    </div>
-                                 </div>
-                                 <div class="col-md-4">
-                                    <div class="container_main">
-                                       <img src="images/img-2.png" alt="" class="image">
-                                       <div class="overlay">
-                                          <div class="text">
-                                             <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="project_main">
-                                       <h2 class="work_text">Home Work</h2>
-                                       <p class="dummy_text">alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use</p>
-                                    </div>
-                                 </div>
-                                 <div class="col-md-4">
-                                    <div class="container_main">
-                                       <img src="images/img-3.png" alt="" class="image">
-                                       <div class="overlay">
-                                          <div class="text">
-                                             <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="project_main">
-                                       <h2 class="work_text">Home Work</h2>
-                                       <p class="dummy_text">alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use</p>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="carousel-item">
-                              <div class="row">
-                                 <div class="col-md-4">
-                                    <div class="container_main">
-                                       <img src="images/img-1.png" alt="" class="image">
-                                       <div class="overlay">
-                                          <div class="text">
-                                             <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="project_main">
-                                       <h2 class="work_text">Home Work</h2>
-                                       <p class="dummy_text">alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use</p>
-                                    </div>
-                                 </div>
-                                 <div class="col-md-4">
-                                    <div class="container_main">
-                                       <img src="images/img-2.png" alt="" class="image">
-                                       <div class="overlay">
-                                          <div class="text">
-                                             <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="project_main">
-                                       <h2 class="work_text">Home Work</h2>
-                                       <p class="dummy_text">alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use</p>
-                                    </div>
-                                 </div>
-                                 <div class="col-md-4">
-                                    <div class="container_main">
-                                       <img src="images/img-3.png" alt="" class="image">
-                                       <div class="overlay">
-                                          <div class="text">
-                                             <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="project_main">
-                                       <h2 class="work_text">Home Work</h2>
-                                       <p class="dummy_text">alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use</p>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        </a>
-                     </div>
-                  </div>
+
+               <!-- Modal Body -->
+               <div class="modal-body">
+                  Are you sure you want to perform this action?
                </div>
-            </div>
+
+               <!-- Modal Footer -->
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" id="confirmButton">Confirm</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               </div>
+
          </div>
       </div>
+   </div>
+         <?php
+               $i++;
+               }
+         ?>
+                              </div> 
+                           </div> 
+                     </div> 
+                  </div> 
+               </div> 
+         </div> 
+      </div>
+   </div> 
+
+   <script>
+      $(document).ready(function() {
+         // Bind click event to each image
+         <?php for ($j = 1; $j <= count($arr); $j++) { ?>
+             $('#myImage<?php echo $j; ?>').click(function() {
+                 $('#myModal<?php echo $j; ?>').modal('show');
+             });
+         <?php } ?>
+
+      $('#confirmButton').click(function() {
+         // Perform AJAX request
+         $.ajax({
+               url: 'your_request_url_here',
+               method: 'POST',
+               data: { /* any data you want to send */ },
+               success: function(response) {
+                  // Handle success response
+                  console.log('Request successful:', response);
+                  // Optionally, close the modal
+                  $('#myModal').modal('hide');
+               },
+               error: function(xhr, status, error) {
+                  // Handle error
+                  console.error('Error:', error);
+                  // Optionally, display error message to user
+               }
+         });
+      });
+   });
+
+   </script>
+
       <!-- projects section end -->
       <!-- testimonial section start -->
       <div class="testimonial_section layout_padding">
