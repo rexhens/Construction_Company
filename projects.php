@@ -114,82 +114,68 @@ include("backend_processes/insert_project.php");
                          </div>
                          <div class="col-md-8 m-2">
                              <button class="btn btn-warning" id = "createNewProjBtn">Create a new Project</button>
-                         </div>
+                           </div>
                      </div>
                  </div>
 
-                      <!-- Bootstrap modal for success message -->
-<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="successModalLabel">Success</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Your success message goes here.
-            </div>
-        </div>
-    </div>
-</div>
 
 
                     <!-- Create new project modal -->
                     <div class="modal fade" id="createNewProjModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
-                        <div class="modal-dialog modal-dialog-centered">
-                           <div class="modal-content">
-                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Create a new Project</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                 </div>
-                                 <div class="modal-body">
-                                 <form method="post" id="createProjForm">
-                                       <div class="mb-3">
-                                          <label for="recipient-name" class="col-form-label">Project Name:</label>
-                                          <input type="text" class="form-control" name="project_name">
-                                       </div>
-                                       <div class="mb-3">
-                                          <label for="message-text" class="col-form-label">Start Date:</label>
-                                          <input type="date" class="form-control" name="start_date">
-                                       </div>
-                                       <div class="mb-3">
-                                          <label for="message-text" class="col-form-label">Expected End Date:</label>
-                                          <input type="date" class="form-control" name="end_date">
-                                       </div>
-                                       <div class="mb-3">
-                                          <label for="message-text" class="col-form-label">Budget:</label>
-                                          <input type="number" class="form-control" name="budget">
-                                       </div>
-                                       <div class="mb-3">
-                                          <label for="message-text" class="col-form-label">Location:</label>
-                                          <input type="text" class="form-control" name="location">
-                                       </div>
-                                       <div class="mb-3">
-                                          <label for="message-text" class="col-form-label">Description:</label>
-                                          <textarea class="form-control" id="message-text" name="description"></textarea>
-                                       </div class="mb-3">
-                                          <label for="message-text" class="col-form-label">Assign Team:</label>
-                                          <select name="options">
-                                       <?php
-                                      $result = getTeams();
-                                      while ($row = $result->fetch_assoc()) {
-                                          echo "<option value='{$row['team_id']}'>{$row['team_name']}</option>";
-                                      }
-                                      
-                                       ?>
-                                          </select>
-                                          <div class="mb-3">
-                                          <input type="submit" class="btn btn-close" value="Create" name="submit_btn">
-                                          </div>
-
-                                 </form>
-                                 </div>
-                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
-                                 </div>
-                           </div>
-                        </div>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create a new Project</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="createProjForm">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Project Name:</label>
+                        <input type="text" class="form-control" name="project_name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Start Date:</label>
+                        <input type="date" class="form-control" name="start_date">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Expected End Date:</label>
+                        <input type="date" class="form-control" name="end_date">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Budget:</label>
+                        <input type="number" class="form-control" name="budget">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Location:</label>
+                        <input type="text" class="form-control" name="location">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="message-text" name="description"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Assign Team:</label>
+                        <select name="options">
+                            <?php
+                            $result = getTeams();
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<option value='{$row['team_id']}'>{$row['team_name']}</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <input type="submit" class="btn btn-close" value="Create" name="submit_btn">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
                      </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
                       <!-- Script for sending data with ajax -->
                      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
@@ -205,7 +191,7 @@ include("backend_processes/insert_project.php");
                                  data:  formdata,
                                  success:function(){
                                     $('#successModal').modal('show');
-                                 }
+                                 },
                                  error: function(xhr, status, error){
                                    // Handle error if needed
                                   console.error(xhr.responseText);
@@ -227,17 +213,15 @@ include("backend_processes/insert_project.php");
                               <a class="nav-link " href="#" data-toggle="tab">All</a>
                            </li>
                            <li class="nav-item">
-                              <a class="nav-link " href="#" data-toggle="tab">Paintingl</a>
+                              <a class="nav-link " href="#" data-toggle="tab">Sort By Date</a>
                            </li>
                            <li class="nav-item">
-                              <a class="nav-link " href="#" data-toggle="tab">Reconstructionl</a>
+                              <a class="nav-link " href="#" data-toggle="tab">Finished Projects</a>
                            </li>
                            <li class="nav-item">
-                              <a class="nav-link " href="#" data-toggle="tab">Repairsl</a>
+                              <a class="nav-link " href="#" data-toggle="tab">Destination</a>
                            </li>
-                           <li class="nav-item">
-                              <a class="nav-link " href="#" data-toggle="tab">Residentall</a>
-                           </li>
+            
                         </ul>
                      </div>
                   </div>
@@ -258,25 +242,27 @@ include("backend_processes/insert_project.php");
                             <div class="row">
                                 <?php
                                 $i = 1;
-                               
-
+                                $photo_no = 1;
                            $result = get_projects();
                            while($row = $result->fetch_assoc())
                            {
                               ?>
-                              <div class="col-md-4">
-                                    <div class="container_main">
-                                       <img src="images/img-1.png" alt="" class="image" data-bs-toggle="modal" data-bs-target="#modal<?php echo $i;?>" data-modal-id="<?php echo $i;?>">  
-                                    </div>
-                                    <div class="project_main">
-                                       <h2 class="work_text"></h2>
-                                       <p class="dummy_text"><?php echo $row['project_name'] ?></p>
-                                    </div>
-                                 </div>
+                             <div class="col-md-4">
+    <div class="container_main">
+        <img src="images/img-<?php echo $photo_no;?>.png" alt="" class="image" data-bs-toggle="modal" data-bs-target="#modal<?php echo $i;?>" data-modal-id="<?php echo $i;?>">  
+    </div>
+    <div class="project_main">
+        <h2 class="work_text"></h2>
+        <p class="dummy_text text-center"><?php echo $row['project_name'] ?></p>
+        <button class="btn btn-warning modifyBtn">Modify</button>
+        <button class="btn btn-close detailsBtn">Details</button>
+    </div>
+</div>
+
 
 
             
-                                            <!-- Modal -->
+                                            <!-- Details Modal -->
                           <div class="modal fade" id="modal<?php echo $i;?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
                               <div class="modal-dialog modal-dialog-centered">
                                  <div class="modal-content">
@@ -305,13 +291,72 @@ include("backend_processes/insert_project.php");
                               </div>
                            </div>
 
+                                            <!-- Edit Modal -->
+                                          
+<div class="modal fade" id="edit_modal<?php echo $i;?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form method="post" id="editProjForm">
+      <input type="hidden" name="project_id" value="<?php echo $row['project_id']; ?>">
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Project Name:</label>
+                        <input type="text" class="form-control" name="project_name_edit" value="<?php echo $row['project_name']?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Expected End Date:</label>
+                        <input type="date" class="form-control" name="end_date_edit" value="<?php echo $row['end_date']?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Budget:</label>
+                        <input type="number" class="form-control" name="budget_edit" value="<?php echo $row['budget']?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Location:</label>
+                        <input type="text" class="form-control" name="location_edit" value="<?php echo $row['location']?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="message-text" name="description_edit"><?php echo $row['description']?></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Assign Team:</label>
+                        <select name="options_edit">
+    <?php
+    $base = getTeams();
+    while ($row = $base->fetch_assoc()) {
+        echo "<option value='{$row['team_id']}'>{$row['team_name']}</option>";
+    }
+    ?>
+</select>
+
+                    </div>
+                    <div class="mb-3">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-warning" value="Save Changes" name="edit_project_submit_btn" id="edit_project_submit_btn">
+        </div>
+                </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
                                 <?php
                                     if ($i % 3 == 0) {
                                         echo '</div><div class="row">'; // Close the row and start a new one after every third project
-                                    }
+                                       $photo_no = 0;
+                                       }
                                     $i++;
+                                    $photo_no++;
                                 
   
 }
@@ -337,10 +382,48 @@ include("backend_processes/insert_project.php");
             $('.modal-backdrop').removeClass('modal-backdrop');
         });
 
+        $('.detailsBtn').click(function() {
+         var modalId = $(this).closest('.project_main').prev().find('.image').data('modal-id');
+         console.log(modalId)  
+         $('#modal' + modalId).modal('show');
+            $('.modal-backdrop').removeClass('modal-backdrop');
+        });
+
         $('#createNewProjBtn').click(function() {
             $('#createNewProjModal').modal('show');
          
         });
+        $('.modifyBtn').click(function() {
+         var modalId = $(this).closest('.project_main').prev().find('.image').data('modal-id');
+         console.log(modalId);
+         $('#edit_modal'+modalId).modal('show');
+         $('.modal-backdrop').removeClass('modal-backdrop');
+         
+        });
+
+        
+        $('#editProjForm').submit(function(e){
+    e.preventDefault(); // Corrected typo here
+
+    var formdata = $(this).serialize();
+    
+    $.ajax({
+        type: 'post',
+        url: "backend_processes/edit_project.php",
+        data: formdata,
+        success: function(response){
+            // Handle success response if needed
+            console.log(response);
+        },
+        error: function(xhr, status, error){
+            // Handle error if needed
+            console.error(xhr.responseText);
+        }
+    });
+});
+
+   
+
     });
 </script>
 
