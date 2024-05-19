@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php 
 <html lang="en">
    <head>
       <!-- basic -->
@@ -238,3 +239,5 @@
       <script src="js/plugin.js"></script>
    </body>
 </html>
+
+?>
