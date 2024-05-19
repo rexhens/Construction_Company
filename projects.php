@@ -156,7 +156,7 @@ include("backend_processes/insert_project.php");
                     </div>
                     <div class="mb-3">
                         <label for="message-text" class="col-form-label">Assign Team:</label>
-                        <select name="options">
+                        <select name="options" class="form-select">
                             <?php
                             $result = getTeams();
                             while ($row = $result->fetch_assoc()) {
@@ -164,10 +164,11 @@ include("backend_processes/insert_project.php");
                             }
                             ?>
                         </select>
+                        
                     </div>
                     <div class="mb-3">
-                        <input type="submit" class="btn btn-close" value="Create" name="submit_btn">
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-close mx-2" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-warning mx-2" value="Create" name="submit_btn">
                      </div>
                 </form>
             </div>
@@ -191,6 +192,7 @@ include("backend_processes/insert_project.php");
                                  data:  formdata,
                                  success:function(){
                                     $('#successModal').modal('show');
+                                    history.replaceState(null, null, location.href);
                                  },
                                  error: function(xhr, status, error){
                                    // Handle error if needed
@@ -240,10 +242,23 @@ include("backend_processes/insert_project.php");
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="row">
+                              <!-- Php code for pagination-->
                                 <?php
                                 $i = 1;
                                 $photo_no = 1;
-                           $result = get_projects();
+                                $items_per_page = 6;
+                                $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                                $offset = ($current_page - 1) * $items_per_page;
+                                
+                                // Fetch the projects for the current page
+                                $result = get_projects($offset, $items_per_page);
+                                
+                                // Fetch total number of projects for pagination calculation
+                                $total_projects_query = "SELECT COUNT(*) as count FROM Projects";
+                                $total_projects_result = $conn->query($total_projects_query);
+                                $total_projects = $total_projects_result->fetch_assoc()['count'];
+                                $total_pages = ceil($total_projects / $items_per_page);
+                                
                            while($row = $result->fetch_assoc())
                            {
                               ?>
@@ -252,11 +267,22 @@ include("backend_processes/insert_project.php");
         <img src="images/img-<?php echo $photo_no;?>.png" alt="" class="image" data-bs-toggle="modal" data-bs-target="#modal<?php echo $i;?>" data-modal-id="<?php echo $i;?>">  
     </div>
     <div class="project_main">
-        <h2 class="work_text"></h2>
-        <p class="dummy_text text-center"><?php echo $row['project_name'] ?></p>
-        <button class="btn btn-warning modifyBtn">Modify</button>
-        <button class="btn btn-close detailsBtn">Details</button>
+    <h2 class="work_text"></h2>
+    <p class="dummy_text text-center"><?php echo $row['project_name'] ?></p>
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-warning modifyBtn mx-2">Modify</button>
+        <button class="btn btn-close detailsBtn mx-2">Details</button>
+        <?php
+            if($row['status'] == "active"){
+                echo '<form id="changeStatusForm' . $row["project_id"] . '" class="d-inline">
+                        <input type="hidden" name="project_id" value="' . $row["project_id"] . '">
+                        <input type="submit" class="btn btn-secondary" name="ChangeStatusBtn" value="Finish Project">
+                      </form>';
+            }
+        ?>
     </div>
+</div>
+
 </div>
 
 
@@ -367,6 +393,42 @@ include("backend_processes/insert_project.php");
                 </div> 
             </div> 
         </div> 
+        <style>
+.pagination .page-link {
+    color: orange; /* Change the text color to orange */
+}
+
+.pagination .page-link:hover {
+    color: darkorange; /* Change the text color to dark orange on hover */
+}
+
+.pagination .page-item.active .page-link {
+    background-color: orange; /* Change the background color to orange for the active page */
+    border-color: orange; /* Change the border color to orange for the active page */
+}
+
+.pagination .page-item.disabled .page-link {
+    color: gray; /* Optionally, change the color of disabled links */
+}
+
+        </style>
+        <!--Pagination-->
+        <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item <?php if ($current_page == 1) echo 'disabled'; ?>">
+            <a class="page-link" href="?page=<?php echo $current_page - 1; ?>" tabindex="-1">Previous</a>
+        </li>
+        <?php for ($page = 1; $page <= $total_pages; $page++) { ?>
+            <li class="page-item <?php if ($current_page == $page) echo 'active'; ?>">
+                <a class="page-link" href="?page=<?php echo $page; ?>"><?php echo $page; ?></a>
+            </li>
+        <?php } ?>
+        <li class="page-item <?php if ($current_page == $total_pages) echo 'disabled'; ?>">
+            <a class="page-link" href="?page=<?php echo $current_page + 1; ?>">Next</a>
+        </li>
+    </ul>
+</nav>
+
     </div> 
 </div> 
 
@@ -400,31 +462,50 @@ include("backend_processes/insert_project.php");
          $('.modal-backdrop').removeClass('modal-backdrop');
          
         });
+        $(document).on('submit', 'form[id^="editProjForm"]', function(e) {
+        e.preventDefault(); 
+        var formdata = $(this).serialize();
+        $.ajax({
+            type: 'post',
+            url: "backend_processes/edit_project.php",
+            data: formdata,
+            success: function(response){
+                console.log(response);
+                location.reload();
+            },
+            error: function(xhr, status, error){
+                console.error(xhr.responseText);
+            }
+        });
+    });
 
+   })
+
+</script>
+<script>
+$(document).ready(function() {
+    $(document).on('submit', 'form[id^="changeStatusForm"]', function(e) {
+        e.preventDefault(); 
         
-        $('#editProjForm').submit(function(e){
-    e.preventDefault(); // Corrected typo here
-
-    var formdata = $(this).serialize();
-    
-    $.ajax({
-        type: 'post',
-        url: "backend_processes/edit_project.php",
-        data: formdata,
-        success: function(response){
-            // Handle success response if needed
-            console.log(response);
-        },
-        error: function(xhr, status, error){
-            // Handle error if needed
-            console.error(xhr.responseText);
-        }
+        var formdata = $(this).serialize();
+        
+        $.ajax({
+            type: 'post',
+            url: "backend_processes/change_project_status.php",
+            data: formdata,
+            success: function(response){
+               location.reload();
+               alert("Successfuly changed status!");               
+            },
+            error: function(xhr, status, error){
+                console.error(xhr.responseText);
+                // Optionally handle error response
+                // For example, you can display an error message to the user
+            }
+        });
     });
 });
 
-   
-
-    });
 </script>
 
       <!-- projects section end -->

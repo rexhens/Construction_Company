@@ -1,9 +1,8 @@
 <?php
 include("C:/xampp/htdocs/Construction_Company/php_config/config.php");
 
-
 if (isset($_POST['project_name_edit']) && isset($_POST['end_date_edit']) &&
-    isset($_POST['budget_edit']) && isset($_POST['options_edit']) && isset($_POST['description_edit'])) {
+    isset($_POST['budget_edit']) && isset($_POST['options_edit']) && isset($_POST['description_edit']) && isset($_POST['project_id'])) {
 
     // Assign values from POST data
     $project_id = $_POST['project_id'];
@@ -16,7 +15,7 @@ if (isset($_POST['project_name_edit']) && isset($_POST['end_date_edit']) &&
 
     // Prepare the SQL statement using prepared statements to prevent SQL injection
     $query = "UPDATE Projects 
-              SET `project_name` = ?, `end_date` = ?, `budget` = ?, `status` = ?, `description` = ?, `team_id` = ?,`status` = ?
+              SET `project_name` = ?, `end_date` = ?, `budget` = ?, `status` = ?, `description` = ?, `team_id` = ?
               WHERE `project_id` = ?";
 
     // Prepare and bind the statement
@@ -24,11 +23,11 @@ if (isset($_POST['project_name_edit']) && isset($_POST['end_date_edit']) &&
 
     // Check if statement preparation was successful
     if ($stmt) {
-        $stmt->bind_param("ssissssi", $project_name, $end_date, $budget, $status, $description, $team_id,$status,$project_id);
+        $stmt->bind_param("ssisssi", $project_name, $end_date, $budget, $status, $description, $team_id, $project_id);
 
         // Execute the statement
         if ($stmt->execute()) {
-            echo "Success";
+            echo "Success Editing";
         } else {
             echo "Error: " . $stmt->error;
         }
@@ -36,14 +35,10 @@ if (isset($_POST['project_name_edit']) && isset($_POST['end_date_edit']) &&
         // Close the statement
         $stmt->close();
     } else {
-        $js_code = "console.log('Error editing to Database!');";
-
-        // Output the JavaScript code within a <script> tag
-        echo "<script>{$js_code}</script>";
+        echo "Error preparing statement: " . $conn->error;
     }
 } else {
-    $js_code = "console.log('Error to Database!');";
-
-    // Output the JavaScript code within a <script> tag
-    echo "<script>{$js_code}</script>";
+    echo "Error: Missing required POST parameters";
 }
+
+?>

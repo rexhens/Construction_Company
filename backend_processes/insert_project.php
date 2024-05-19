@@ -14,7 +14,8 @@ if(isset($_POST['submit_btn']))
         $location = $_POST['location'];
         $description = $_POST['description'];
         $status = "active";
-
+        if(!empty($project_name) && !empty($start_date != null) && !empty($end_date != null)
+        && !empty($budget != null) && !empty($location != null) && !empty($description != null)){
         // Prepare the SQL statement using prepared statements to prevent SQL injection
         $query = "INSERT INTO Projects (`project_name`, `start_date`, `end_date`, `budget`, `status`, `location`, `description`, `team_id`) 
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -41,5 +42,6 @@ if(isset($_POST['submit_btn']))
     } else {
         echo "Error: Missing required fields";
     }
+}
 }
 ?>
