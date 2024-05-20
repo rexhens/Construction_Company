@@ -1,6 +1,7 @@
 <?php
 include("php_config/config.php"); // Include your database connection file
 
+<<<<<<< Updated upstream
 // Check if the blog post ID is provided in the URL
 if (isset($_GET["blog_id"])) {
     $blog_id = $_GET["blog_id"];
@@ -48,6 +49,26 @@ if (isset($_GET["blog_id"])) {
     }
 } else {
     echo "Error: Blog post ID not provided";
+=======
+// Retrieve blog posts from the database
+$query = "SELECT * FROM BlogPosts";
+$result = $conn->query($query);
+
+// Check if there are any results
+if ($result->num_rows > 0) {
+    // Output data of each row
+    while($row = $result->fetch_assoc()) {
+        // Display blog post information
+        echo "Title: " . $row["title"] . "<br>";
+        echo "Date: " . $row["date"] . "<br>";
+        echo "Category: " . $row["category"] . "<br>";
+        // Add more fields as needed
+
+        echo "<hr>"; // Add a horizontal line to separate each blog post
+    }
+} else {
+    echo "No blog posts found";
+>>>>>>> Stashed changes
 }
 
 // Close the database connection

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
 <?php
 require_once("php_config/config.php");
 include("backend_processes/create_blogs.php"); 
@@ -8,7 +11,10 @@ include("backend_processes/read_blogs.php");
 include("backend_processes/update_blogs.php"); 
 include("backend_processes/delete_blogs.php"); 
 ?>
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 <head>
       <!-- basic -->
       <meta charset="utf-8">

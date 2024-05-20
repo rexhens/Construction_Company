@@ -75,7 +75,7 @@ include("backend_processes/insert_project.php");
                         <a class="nav-link" href="projects.html">Projects</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
+                        <a class="nav-link" href="blog.php">Blog</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="testimonial.html">Testimonial</a>
@@ -535,12 +535,12 @@ $(document).ready(function() {
                      <h2 class="useful_text">QUICK LINKS</h2>
                      <div class="footer_menu">
                         <ul>
-                           <li><a href="index.html">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                            <li><a href="about.html">About</a></li>
                            <li><a href="services.html">Services</a></li>
-                           <li><a href="projects.html">Projects</a></li>
-                           <li><a href="testimonial.html">Testimonial</a></li>
-                           <li><a href="blog.html">Blog</a></li>
+                           <li><a href="projects.php">Projects</a></li>
+                           <li><a href="testimonial.php">Testimonial</a></li>
+                           <li><a href="blog.php">Blog</a></li>
                            <li><a href="contact.html">Contact Us</a></li>
                         </ul>
                      </div>
@@ -561,16 +561,16 @@ $(document).ready(function() {
             <div class="social_icon">
                <ul>
                   <li>
-                     <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                  <a href="https://www.facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                   </li>
                   <li>
-                     <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                     <a href="https://x.com"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                   </li>
                   <li>
-                     <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                     <a href="https://al.linkedin.com"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                   </li>
                   <li>
-                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                     <a href="https://www.instagram.com"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                   </li>
                </ul>
             </div>
