@@ -316,8 +316,10 @@ button {
 }
 
 .logo {
-    width: auto;
+   /* width: auto;*/
+    margin-top: 20px; /* Adjust as needed */
 }
+
 
 .ml-auto,
 .mx-auto {
@@ -1080,6 +1082,9 @@ textarea#comment.massage-bt::placeholder {
     float: left;
 }
 
+
+
+
 .send_bt a {
     width: 100%;
     text-align: center;
@@ -1152,20 +1157,20 @@ textarea#comment.massage-bt::placeholder {
 }
 
 .location_text ul {
-    margin: 0px;
-    padding: 0px;
-    display: inline-block;
-    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Change from inline-block to flex */
+    justify-content: center; /* Horizontally center items */
 }
 
 .location_text li {
-    float: left;
     font-size: 16px;
     color: #ffffff;
-    padding: 0px 120px 30px 120px;
+    padding: 0 20px; /* Adjust padding as needed */
     line-height: 30px;
     font-family: 'Poppins', sans-serif;
 }
+
 
 .location_text li a {
     color: #ffffff;
@@ -1189,6 +1194,8 @@ textarea#comment.massage-bt::placeholder {
     text-align: center;
     margin-top: 40px;
 }
+
+
 
 .social_icon ul {
     margin: 0px;
