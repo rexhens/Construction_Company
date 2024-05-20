@@ -274,6 +274,7 @@ include("backend_processes/delete_blogs.php");
        </div>
     </div>
  </div>
+ 
 
        <!-- footer section start -->
        <div class="footer_section layout_padding">
