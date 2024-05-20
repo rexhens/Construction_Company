@@ -44,7 +44,7 @@ include("backend_processes/insert_project.php");
                <div class="col-sm-12">
                   <div class="header_top_main">
                      <div class="call_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +355-68-114-6855</a></div>
-                     <div class="call_text_2"><a href="mailto:rexhi@bobthebuilder.com"><i class="fa fa-envelope" aria-hidden="true"></i> rexhi@bobthebuilder.com</a></div>
+                     <div class="call_text_2"><a href="mailto: bobthebuilder@bobthebuilder.com"><i class="fa fa-envelope" aria-hidden="true"></i>  bobthebuilder@bobthebuilder.com</a></div>
                      <div class="call_text_1"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> Tirana, Albania</a></div>
                   </div>
                </div>
@@ -66,22 +66,22 @@ include("backend_processes/insert_project.php");
                         <a class="nav-link" href="index.php">Home</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="services.html">Services</a>
+                        <a class="nav-link" href="services.php">Services</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                      </li>
                      <li class="nav-item active">
-                        <a class="nav-link" href="projects.html">Projects</a>
+                        <a class="nav-link" href="projects.php">Projects</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="blog.php">Blog</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="testimonial.html">Testimonial</a>
+                        <a class="nav-link" href="testimonial.php">Testimonial</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
+                        <a class="nav-link" href="contact.php">Contact Us</a>
                      </li>
                      <?php
                      
@@ -507,92 +507,8 @@ $(document).ready(function() {
 });
 
 </script>
-
-      <!-- projects section end -->
-      <!-- footer section start -->
-      <div class="footer_section layout_padding">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="location_text">
-                     <ul>
-                        <li>
-                           <a href="#"><span class="padding_15"><i class="fa fa-mobile" aria-hidden="true"></i></span> <br>Call +01 1234567890</a>
-                        </li>
-                        <li class="active">
-                           <a href="#"><span class="padding_15"><i class="fa fa-envelope" aria-hidden="true"></i></span> <br>demo@gmail.com</a>
-                        </li>
-                        <li>
-                           <a href="#"><span class="padding_15"><i class="fa fa-map-marker" aria-hidden="true"></i></span> <br>Location</a>
-                        </li> 
-                     </ul>
-                  </div>
-               </div>
-            </div>
-            <div class="footer_section_2">
-               <div class="row">
-                  <div class="col-md-4">
-                     <h2 class="useful_text">QUICK LINKS</h2>
-                     <div class="footer_menu">
-                        <ul>
-                        <li><a href="index.php">Home</a></li>
-                           <li><a href="about.html">About</a></li>
-                           <li><a href="services.html">Services</a></li>
-                           <li><a href="projects.php">Projects</a></li>
-                           <li><a href="testimonial.php">Testimonial</a></li>
-                           <li><a href="blog.php">Blog</a></li>
-                           <li><a href="contact.html">Contact Us</a></li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <h2 class="useful_text">Work Portfolio</h2>
-                     <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem</p>
-                  </div>
-                  <div class="col-md-4">
-                     <h2 class="useful_text">SIGN UP TO OUR NEWSLETTER</h2>
-                     <div class="form-group">
-                        <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="comment" name="Enter Your Email"></textarea>
-                        <div class="subscribe_bt"><a href="#">Subscribe</a></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="social_icon">
-               <ul>
-                  <li>
-                  <a href="https://www.facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                  </li>
-                  <li>
-                     <a href="https://x.com"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                  </li>
-                  <li>
-                     <a href="https://al.linkedin.com"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                  </li>
-                  <li>
-                     <a href="https://www.instagram.com"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                  </li>
-               </ul>
-            </div>
-         </div>
-      </div>
-      <!-- footer section end -->
-      <!-- copyright section start -->
-      <div class="copyright_section">
-         <div class="container">
-            <div class="row">
-               <div class="col-sm-12">
-                  <p class="copyright_text">2019 All Rights Reserved. Design by <a href="https://html.design" rel="nofollow">HTML.DESIGN</a> Distribution by <a href="https://themewagon.com">ThemeWagon</a></p>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- copyright section end -->
-      <!-- Javascript files-->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <script src="js/plugin.js"></script>
+<?php
+include_once("footer.html");
+?>
    </body>
 </html>
