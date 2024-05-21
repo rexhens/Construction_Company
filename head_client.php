@@ -67,12 +67,6 @@ session_start();
                         <a class="nav-link" href="client_index.php">Home</a>
                      </li>
                         
-                        <li class="nav-item">
-                           <?php
-                              echo '<a class="nav-link" href="staff.php">Staff</a>';
-                           
-                           ?>
-                        </li>
                   
                      <li class="nav-item">
                         <a class="nav-link" href="about.php">About</a>

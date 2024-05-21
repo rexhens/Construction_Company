@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("sssssdsi", $name, $surname, $email, $phone_number, $job_title, $salary, $status, $team_id);
         
         if ($stmt->execute()) {
+            header("Location: /Construction_Company/staff.php");
             echo "New record created successfully";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;

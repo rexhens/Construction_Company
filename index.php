@@ -62,28 +62,21 @@ require_once("php_config/config.php");
                         <a class="nav-link" href="index.php">Home</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="services.php">Services</a>
+                        <a class="nav-link" href="staff.php">Staff</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="about.php">About</a>
+                        <a class="nav-link" href="user.php">Users</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="projects.php">Project</a>
                      </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="blog.php">Blog</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="testimonial.php">Testimonial</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact Us</a>
-                     </li>
+                    
+                     
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
                      <div class="login_text">
                         <ul>
-                           <li><a href="login.php">Login</a></li>
+                           <li><a href="client_index.php">Logout</a></li>
                             <!-- go to the user's account -->
                            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                         </ul>
