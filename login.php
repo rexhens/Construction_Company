@@ -79,27 +79,46 @@
     color: #fff;
 }
 </style>
+<?php
+session_start();
+?>
 <div class="sidenav">
-         <div class="login-main-text">
-            <h1>Construction Company<br> Login Page</h1>
-            <p>Login or register from here to access.</p>
-         </div>
-      </div>
-      <div class="main">
-         <div class="col-md-6 col-sm-12">
-            <div class="login-form">
-               <form>
-                  <div class="form-group">
-                     <label>User Name</label>
-                     <input type="text" class="form-control" placeholder="User Name">
-                  </div>
-                  <div class="form-group">
-                     <label>Password</label>
-                     <input type="password" class="form-control" placeholder="Password">
-                  </div>
-                  <button type="submit" class="btn btn-black">Login</button>
-                  <button type="submit" class="btn btn-secondary">Register</button>
-               </form>
-            </div>
-         </div>
-      </div>
+    <div class="login-main-text">
+        <h1>Construction Company<br> Login Page</h1>
+        <p>Login or register from here to access.</p>
+    </div>
+</div>
+<div class="main">
+    <div class="col-md-6 col-sm-12">
+        <div class="login-form">
+            <form method="post" action="backend_processes/login_process.php">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" placeholder="Username" name="username">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" placeholder="Password" name="password">
+                </div>
+                <input type="submit" class="btn btn-black" value="Login">
+            </form>
+        </div>
+    </div>
+</div>
+<?php
+// Display the error message if it exists
+if (isset($_SESSION['error_message'])) {
+    ?>
+    <div class="alert alert-danger" role="alert">
+        <?php
+        echo $_SESSION['error_message'];
+        unset($_SESSION['error_message']); // Clear the error message after displaying it
+        ?>
+    </div>
+    <?php
+}
+?>
+<div class="alert alert-danger" role="alert">
+      <h1>asdasdh</h1>
+    </div>
+
