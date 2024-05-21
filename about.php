@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
       <?php
-      include_once("head.html");
+      include_once("head.php");
       ?>
    </head>
       <div class="about_section layout_padding">

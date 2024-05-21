@@ -5,7 +5,7 @@ require_once("php_config/config.php");
 ?>
 <head>
    <?php
-   include_once("head.html");
+   include_once("head.php");
    ?>
 
 <style>
@@ -22,9 +22,6 @@ require_once("php_config/config.php");
    </style>
 </head>
 <body>
-
-
-
 
 <div class="blog_section layout_padding">
    <div class="container">
