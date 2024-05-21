@@ -5,7 +5,7 @@ require_once("php_config/config.php");
 ?>
 <head>
    <?php
-   include_once("head.php");
+   include_once("headd.html");
    ?>
 
 <style>
@@ -69,6 +69,6 @@ require_once("php_config/config.php");
 <!-- Blog section end -->
 </body>
 <?php
-   include_once("footer.html");
+   include_once("footeradmin.html");
    ?>
 </html>
