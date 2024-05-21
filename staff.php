@@ -194,55 +194,55 @@ require_once("php_config/config.php");
 
 <!-- Edit Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Record</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="editForm" method="POST" action="backend_processes/updateStaff.php">
-                    <input type="hidden" id="editId">
-                    <div class="form-group">
-                        <label for="editName">Name</label>
-                        <input type="text" class="form-control" id="editName" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="editSurname">Surname</label>
-                        <input type="text" class="form-control" id="editSurname" name="surname" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="editEmail">Email</label>
-                        <input type="email" class="form-control" id="editEmail1" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="editPhoneNumber">Phone Number</label>
-                        <input type="text" class="form-control" id="editPhoneNumber" name="phone_number" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="editJobTitle">Job Title</label>
-                        <input type="text" class="form-control" id="editJobTitle" name="job_title" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="editSalary">Salary</label>
-                        <input type="number" step="0.01" class="form-control" id="editSalary" name="salary" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="editStatus">Status</label>
-                        <input type="text" class="form-control" id="editStatus" name="status" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="editTeamId">Team ID</label>
-                        <input type="number" class="form-control" id="editTeamId" name="team_id" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary" name="submit_btn">Save Changes</button>
-                </form>
-            </div>
-        </div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Staff</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="updateForm">
+          <input type="hidden" id="staffId" name="staff_id">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="surname">Surname</label>
+            <input type="text" class="form-control" id="surname" name="surname" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone_number">Phone Number</label>
+            <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+          </div>
+          <div class="form-group">
+            <label for="job_title">Job Title</label>
+            <input type="text" class="form-control" id="job_title" name="job_title" required>
+          </div>
+          <div class="form-group">
+            <label for="salary">Salary</label>
+            <input type="number" class="form-control" id="salary" name="salary" required>
+          </div>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <input type="text" class="form-control" id="status" name="status" required>
+          </div>
+          <div class="form-group">
+            <label for="team_id">Team ID</label>
+            <input type="number" class="form-control" id="team_id" name="team_id" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+      </div>
     </div>
-</div>       
+  </div>
+</div>    
 
  <!-- Bootstrap modal for success message -->
  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
@@ -325,20 +325,40 @@ $(document).ready(function() {
 </script>
 <script>
     $(document).ready(function() {
-    // Handle click on delete team button
-    $('.delete-btn').click(function() {
+    // Handle click on edit button
+    $('.edit-btn').click(function() {
         var staffId = $(this).data('id');
-        $('#confirmDeleteBtn').data('staff-id', staffId);
+        var name = $(this).data('name');
+        var surname = $(this).data('surname');
+        var email = $(this).data('email');
+        var phoneNumber = $(this).data('phone_number');
+        var jobTitle = $(this).data('job_title');
+        var salary = $(this).data('salary');
+        var status = $(this).data('status');
+        var teamId = $(this).data('team_id');
+        
+        // Populate the form fields
+        $('#staffId').val(staffId);
+        $('#name').val(name);
+        $('#surname').val(surname);
+        $('#email').val(email);
+        $('#phone_number').val(phoneNumber);
+        $('#job_title').val(jobTitle);
+        $('#salary').val(salary);
+        $('#status').val(status);
+        $('#team_id').val(teamId);
+        
+        // Show the modal
+        $('#editModal').modal('show');
     });
-    $('#confirmDeleteBtn').click(function() {
-        var staffId = $(this).data('staff-id');
+
+    // Handle form submission for update
+    $('#updateForm').submit(function(e) {
+        e.preventDefault();
         $.ajax({
-            type: 'post',
-            url: 'backend_processes/deleteStaff.php',
-            data: {
-                delete_staff: 1,
-                staff_id: staffId
-            },
+            type: 'POST',
+            url: 'backend_processes/updateStaff.php',
+            data: $(this).serialize(),
             success: function(response) {
                 alert(response);
                 location.reload(); // Reload the page to refresh the table
@@ -349,7 +369,6 @@ $(document).ready(function() {
         });
     });
 });
-
 </script>
 
 </body>
