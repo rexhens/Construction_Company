@@ -500,7 +500,7 @@ $(document).ready(function() {
 
 </script>
 <?php
-include_once("footer.html");
+include_once("footeradmin.html");
 ?>
    </body>
 </html>
