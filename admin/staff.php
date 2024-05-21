@@ -4,9 +4,92 @@ require_once("php_config/config.php");
 ?>
 <html lang="en">
 <head>
-<?php
-include_once("headd.html");
-?>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <!-- header top section start -->
+    <div class="header_top_section">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <div class="header_top_main">
+                     <div class="call_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +355-68-114-6855</a></div>
+                     <div class="call_text_2"><a href="mailto:rexhi@bobthebuilder.com"><i class="fa fa-envelope" aria-hidden="true"></i> rexhi@bobthebuilder.com</a></div>
+                     <div class="call_text_1"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> Tirana, Albania</a></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- header top section start -->
+      <!-- header section start -->
+      <div class="header_section header_bg">
+         <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="index.php">Home</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                     </li>
+                     <li class="nav-item active">
+                        <a class="nav-link" href="projects.html">Staff</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="testimonial.html">Testimonial</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                     </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                     <div class="login_text">
+                        <ul>
+                           <li><a href="#">Login</a></li>
+                            <!-- go to the user's account -->
+                           <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                        </ul>
+                     </div>
+                  </form>
+               </div>
+            </nav>
+         </div>
+      
+      </div>
 <div class="container mt-5">
     <h2 class="mb-4">Staff information</h2>
     <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addModal">Add New</button>
@@ -43,8 +126,17 @@ include_once("headd.html");
                 echo "<td>" . $row["status"] . "</td>";
                 echo "<td>" . $row["team_id"] . "</td>";
                 echo '<td>
-                <button class="btn btn-info btn-sm edit-btn" data-id="'.$row["staff_id"].'" data-name="'.$row["name"].'" data-surname="'.$row["surname"].'" data-email="'.$row["email"].'" data-phone_number="'.$row["phone_number"].'" data-job_tittle="'.$row["job_tittle"].'" data-salary="'.$row["salary"].'" data-status="'.$row["status"].'" data-team_id="'.$row["team_id"].'">Edit</button>
-                <button class="btn btn-danger btn-sm delete-btn" data-id="'.$row["staff_id"].'">Delete</button>
+                <button class="btn btn-info btn-sm edit-btn" 
+  data-id="'.$row["staff_id"].'" 
+  data-name="'.$row["name"].'" 
+  data-surname="'.$row["surname"].'" 
+  data-email="'.$row["email"].'" 
+  data-phone_number="'.$row["phone_number"].'" 
+  data-job_tittle="'.$row["job_tittle"].'" 
+  data-salary="'.$row["salary"].'" 
+  data-status="'.$row["status"].'" 
+  data-team_id="'.$row["team_id"].'">Edit</button>
+                <button class="btn btn-danger btn-sm delete-btn" data-id="'.$row["staff_id"].'" data-toggle="modal" data-target="#deleteModal">Delete</button>
               </td>';
                 echo "</tr>";
             }
@@ -172,7 +264,28 @@ include_once("headd.html");
         </div>
     </div>
 </div>
-        
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this staff member?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function() {
     let records = [];
@@ -213,25 +326,114 @@ $(document).ready(function() {
     $('#editTeamId').val($(this).data('team_id'));
     $('#editModal').modal('show');
 });
-
-
-    $(document).on('click', '.delete-btn', function() {
-    const id = $(this).data('id');
-    $.ajax({
-        url: 'backend_processes/deleteStaff.php',
-        method: 'POST',
-        data: { staff_id: id },
-        success: function() {
-            fetchRecords();
-        }
-    });
-});
-
     fetchRecords();
 });
 </script>
+<script>
+    $(document).ready(function() {
+    // Handle click on delete team button
+    $('.delete-btn').click(function() {
+        var staffId = $(this).data('id');
+        $('#confirmDeleteBtn').data('staff-id', staffId);
+    });
+    $('#confirmDeleteBtn').click(function() {
+        var staffId = $(this).data('staff-id');
+        $.ajax({
+            type: 'post',
+            url: 'backend_processes/deleteStaff.php',
+            data: {
+                delete_staff: 1,
+                staff_id: staffId
+            },
+            success: function(response) {
+                alert(response);
+                location.reload(); // Reload the page to refresh the table
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            }
+        });
+    });
+});
+
+</script>
+
+<div class="footer_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="location_text">
+                     <ul>
+                        <li>
+                           <a href="#"><span class="padding_15"><i class="fa fa-mobile" aria-hidden="true"></i></span> <br>Call +01 1234567890</a>
+                        </li>
+                        <li class="active">
+                           <a href="#"><span class="padding_15"><i class="fa fa-envelope" aria-hidden="true"></i></span> <br>demo@gmail.com</a>
+                        </li>
+                        <li>
+                           <a href="#"><span class="padding_15"><i class="fa fa-map-marker" aria-hidden="true"></i></span> <br>Location</a>
+                        </li> 
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="footer_section_2">
+               <div class="row">
+                  <div class="col-md-4">
+                     <h2 class="useful_text">QUICK LINKS</h2>
+                     <div class="footer_menu">
+                        <ul>
+                           <li><a href="index.html">Home</a></li>
+                           <li><a href="about.html">About</a></li>
+                           <li><a href="services.html">Services</a></li>
+                           <li><a href="projects.html">Projects</a></li>
+                           <li><a href="testimonial.html">Testimonial</a></li>
+                           <li><a href="blog.html">Blog</a></li>
+                           <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <h2 class="useful_text">Work Portfolio</h2>
+                     <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem</p>
+                  </div>
+                  <div class="col-md-4">
+                     <h2 class="useful_text">SIGN UP TO OUR NEWSLETTER</h2>
+                     <div class="form-group">
+                        <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="comment" name="Enter Your Email"></textarea>
+                        <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="social_icon">
+               <ul>
+                  <li>
+                     <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <p class="copyright_text">2019 All Rights Reserved. Design by <a href="https://html.design" rel="nofollow">HTML.DESIGN</a> Distribution by <a href="https://themewagon.com">ThemeWagon</a></p>
+               </div>
+            </div>
+         </div>
+      </div>
 </body>
-<?php
-include_once("footeradmin.html");
-?>
 </html>
