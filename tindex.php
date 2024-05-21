@@ -94,7 +94,7 @@
 <body>
     <div class="container">
         <h2 class="testimonial_taital">Add Testimonial</h2>
-        <form id="testimonialForm" method="POST" action="backend_processes\insert_testimonial.php">
+        <form id="testimonialForm" method="post" action="backend_processes\insert_testimonial.php">
             <label for="client_name">Client Name:</label><br>
             <input type="text" id="client_name" name="client_name"><br>
             <label for="content">Content:</label><br>

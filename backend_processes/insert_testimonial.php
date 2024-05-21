@@ -1,6 +1,6 @@
 <?php
 
-include_once("C:\xampp\htdocs\New folder\Construction_Company\php_config\config.php"); 
+include_once("C:/xampp/htdocs/Construction_Company/php_config/config.php"); 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -9,10 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $rating = $_POST['rating'];
     $project_id = $_POST['project_id'];
 
-    if (empty($client_name) || empty($content) || empty($raiting) || empty($project_id)) {
-        echo "Error: All fields are required.";
-        exit;
-    }
 
     $query = "INSERT INTO Testimonials (client_name, content, rating, project_id) VALUES (?, ?, ?, ?)";
 
@@ -22,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("ssii", $client_name, $content, $rating, $project_id);
         
         if($stmt->execute()) {
-            echo "Success";
+            header("Location: /Construction_Company/testimonial.php");
             exit();
             
         } else {

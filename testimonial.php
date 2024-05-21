@@ -9,6 +9,16 @@
     font-size: 1.2em;
     color: #ffcc00; 
 }
+#addbutton {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 15px 30px; 
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50px; 
+    transition: background-color 0.3s ease; 
+}
    </style>
 </head>
 <body>
