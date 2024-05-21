@@ -2,24 +2,23 @@
 $server = "localhost";
 $username = "root";
 $password = "";
-$database_name= "bobthebuilder";
+$database_name = "bobthebuilder";
 
 // Create connection
-$conn = mysqli_connect( $server, $username, $password, $database_name );	
+$conn = new mysqli($server, $username, $password, $database_name);
 
-if (mysqli_connect_errno() ) {
-echo  "Failed to connect database!<br />
-Error: ".mysqli_connect_error();
-exit;
-}else{
-    $js_code = "console.log('Connected Succesfuly to Database!');";
-
+if ($conn->connect_errno) {
+    echo "Failed to connect to database!<br>Error: " . $conn->connect_error;
+    exit;
+} else {
+    $js_code = "console.log('Connected successfully to the database!');";
     // Output the JavaScript code within a <script> tag
     echo "<script>{$js_code}</script>";
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $namess = $_POST['name'];
+    $staff_id = $_POST['staff_id'];
+    $name = $_POST['name'];
     $surname = $_POST['surname'];
     $email = $_POST['email'];
     $phone_number = $_POST['phone_number'];
@@ -39,7 +38,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
         $stmt->close();
+    } else {
+        echo "Error preparing the statement: " . $conn->error;
     }
     $conn->close();
+} else {
+    echo "Invalid request method.";
 }
 ?>
