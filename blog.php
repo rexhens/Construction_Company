@@ -7,6 +7,19 @@ require_once("php_config/config.php");
    <?php
    include_once("head.html");
    ?>
+
+<style>
+      #addbutton {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 15px 30px; 
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50px; 
+    transition: background-color 0.3s ease; 
+}
+   </style>
 </head>
 <body>
 
