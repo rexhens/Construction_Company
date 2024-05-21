@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->execute()) {
             // Return a success message
             echo "Success";
-            header("Location: /Construction_Company/bindex.php");
+            header("Location: /Construction_Company/blog.php");
                         exit();
         } else {
             echo "Error creating blog post: " . $stmt->error;
