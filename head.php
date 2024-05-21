@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -63,12 +66,17 @@
                      <li class="nav-item">
                         <a class="nav-link" href="index.php">Home</a>
                      </li>
+                        
+                        <li class="nav-item">
+                           <?php
+                              echo '<a class="nav-link" href="staff.php">Staff</a>';
+                           
+                           ?>
+                        </li>
                      <li class="nav-item">
                         <a class="nav-link" href="services.php">Services</a>
                      </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="about.php">About</a>
-                     </li>
+
                      <li class="nav-item">
                         <a class="nav-link" href="projects.php">Project</a>
                      </li>
@@ -78,18 +86,9 @@
                      <li class="nav-item active">
                         <a class="nav-link" href="testimonial.php">Testimonial</a>
                      </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact Us</a>
-                     </li>
+        
                   </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                     <div class="login_text">
-                        <ul>
-                           <li><a href="login.php">Login</a></li>
-                           <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                        </ul>
-                     </div>
-                  </form>
+                 
                </div>
             </nav>
          </div>

@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $username;
             
             // Redirect to the index page
-            header("Location: /Construction_Company/admin/index.php");
+            header("Location: /Construction_Company/index.php");
             exit();
         } else {
             // Set an error message

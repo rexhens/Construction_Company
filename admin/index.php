@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-require_once("php_config/config.php");
+include("C:/xampp/htdocs/Construction_Company/php_config/config.php");
 ?>
 <html lang="en">
    <head>
