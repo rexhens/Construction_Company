@@ -68,8 +68,11 @@
     <div class="mt-3">
 
             <button id="showUpdateFormButton" class="btn btn-primary">Update Blog Post</button>
-            <button id="showDeleteFormButton" class="btn btn-danger">Delete Blog Post</button>
         </div>
+        <div class="mt-3">
+
+<button id="showDeleteFormButton" class="btn btn-danger">Delete Blog Post</button>
+</div>
 <script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

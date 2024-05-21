@@ -1,15 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<?php
-require_once("php_config/config.php");
-?>
 <head>
    <?php
    include_once("head.php");
    ?>
-
-<style>
-      #addbutton {
+   <style>
+      .rating_text {
+    font-size: 1.2em;
+    color: #ffcc00; 
+}
+#addbutton {
     background-color: orange;
     color: white;
     border: none;
@@ -23,49 +24,67 @@ require_once("php_config/config.php");
 </head>
 <body>
 
-<div class="blog_section layout_padding">
+   <!-- testimonial section start -->
+   <div class="testimonial_section layout_padding">
    <div class="container">
-      <div class="section_header">
-         <h1 class="section_title">Our Latest Blogs</h1>
-         <p class="section_subtitle">Stay updated with our latest news and articles</p>
+      <div id="costum_slider" class="carousel slide" data-ride="carousel">
+         <div class="carousel-inner">
+            <?php
+
+
+
+            include_once("php_config/config.php");
+
+            $query = "SELECT * FROM blogposts";
+            $result = mysqli_query($conn, $query);
+
+            if ($result) {
+                $active = true;
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $title = htmlspecialchars($row['title']);
+                    $content = htmlspecialchars($row['content']);
+                    $blog_id = htmlspecialchars($row['blog_id']);
+
+                    echo '<div class="carousel-item' . ($active ? ' active' : '') . '">';
+                    echo '<div class="row">';
+                    echo '<div class="col-md-12">';
+                    echo '<h1 class="testimonial_taital">Blog Post</h1>';
+                    echo '<div>';
+                    echo '<h2><a href="bindex.php"><button id="addbutton">MODIFY</button></a></h2>';
+                    echo '</div>';
+                    echo '<div class="testimonial_section_2">';
+                    echo '<h2 class="client_name_text">' . $title . '</h2>';
+                    echo '<p class="textimonial_text">' . $content . '</p>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+
+                    $active = false;
+                }
+            } else {
+                echo '<div class="carousel-item active">';
+                echo '<div class="row">';
+                echo '<div class="col-md-12">';
+                echo '<h1 class="testimonial_taital">No Blog Posts Found</h1>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            }
+            ?>
+         </div>
+         <a class="carousel-control-prev" href="#costum_slider" role="button" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+         </a>
+         <a class="carousel-control-next" href="#costum_slider" role="button" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+         </a>
       </div>
-      <div class="row">
-         <div class="col-md-4">
-            <div class="blog_post">
-               <img src="images/img-1.png" class="blog_img" alt="Blog Image">
-               <h2 class="blog_title">The Importance of Sustainable Construction Practices</h2>
-               <p class="blog_text">Explore how sustainable construction methods can reduce environmental impact, lower costs, and create healthier buildings for the future.</p>
-
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="blog_post">
-               <img src="images/img-2.png" class="blog_img" alt="Blog Image">
-               <h2 class="blog_title">Top 10 Construction Trends to Watch in 2024</h2>
-               <p class="blog_text">Stay ahead of the curve with the latest trends in the construction industry, from smart technologies to innovative materials and techniques.</p>
-
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="blog_post">
-               <img src="images/img-3.png" class="blog_img" alt="Blog Image">
-               <h2 class="blog_title">The Role of Technology in Modern Construction</h2>
-               <p class="blog_text">How advancements in technology, such as drones, 3D printing, and BIM (Building Information Modeling), are revolutionizing the construction industry.</p>
-
-            </div>
-         </div>
-      </div>
-      <div class="add_button_section">
-    <a href="bindex.php">
-        <button id="addbutton" class="add_button">MODIFY</button>
-        <br>
-    </a>
-</div>
    </div>
 </div>
-<!-- Blog section end -->
-</body>
-<?php
+   <!-- testimonial section end -->
+   <?php
    include_once("footer.html");
    ?>
+</body>
 </html>
