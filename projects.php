@@ -143,7 +143,7 @@ include("backend_processes/insert_project.php");
                         <input type="date" class="form-control" name="end_date">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Budget:</label>
+                        <label for="message-text" class="col-form-label">Budget($):</label>
                         <input type="number" class="form-control" name="budget">
                     </div>
                     <div class="mb-3">
@@ -191,7 +191,7 @@ include("backend_processes/insert_project.php");
                                  url : "backend_processes/insert_project.php",
                                  data:  formdata,
                                  success:function(){
-                                    $('#successModal').modal('show');
+                                    alert("A new Project was susccesfully inserted!");
                                     history.replaceState(null, null, location.href);
                                  },
                                  error: function(xhr, status, error){
@@ -302,7 +302,7 @@ include("backend_processes/insert_project.php");
                                           <br>
                                           <?php echo "Expected Ending Date: ".$row['end_date'];?>
                                           <br>
-                                          <?php echo "Budget: ".$row['budget'];?>
+                                          <?php echo "Budget($): ".$row['budget'];?>
                                           <br>
                                           <?php echo "Location: ".$row['location'];?>
                                           <br>
@@ -339,7 +339,7 @@ include("backend_processes/insert_project.php");
                         <input type="date" class="form-control" name="end_date_edit" value="<?php echo $row['end_date']?>">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Budget:</label>
+                        <label for="message-text" class="col-form-label">Budget($):</label>
                         <input type="number" class="form-control" name="budget_edit" value="<?php echo $row['budget']?>">
                     </div>
                     <div class="mb-3">
@@ -470,7 +470,7 @@ include("backend_processes/insert_project.php");
             url: "backend_processes/edit_project.php",
             data: formdata,
             success: function(response){
-                console.log(response);
+                alert("Project was sucessfully edited!");
                 location.reload();
             },
             error: function(xhr, status, error){
