@@ -59,7 +59,7 @@
                         <a class="nav-link" href="index.html">Home</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="services.html">Services</a>
+                        <a class="nav-link" href="services.php">Services</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
@@ -74,7 +74,7 @@
                         <a class="nav-link" href="testimonial.php">Testimonial</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
+                        <a class="nav-link" href="contact.php">Contact Us</a>
                      </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
@@ -94,7 +94,7 @@
 <body>
     <div class="container">
         <h2 class="testimonial_taital">Add Testimonial</h2>
-        <form id="testimonialForm">
+        <form id="testimonialForm" method="POST" action="backend_processes\insert_testimonial.php">
             <label for="client_name">Client Name:</label><br>
             <input type="text" id="client_name" name="client_name"><br>
             <label for="content">Content:</label><br>
@@ -106,40 +106,8 @@
             <button type="submit">Add</button>
         </form>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+   
 
-    <script>
-        document.getElementById("testimonialForm").addEventListener("submit", function(event) {
-            event.preventDefault(); 
-
-            var formData = new FormData(this);
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4) {
-                    if (this.status == 200) {
-                        try {
-                            var response = JSON.parse(this.responseText);
-                            if (response.status === "success") {
-                                alert(response.message);
-                                window.location.href = "testimonials.php"; 
-                            } else {
-                                alert(response.message);
-                            }
-                        } catch (e) {
-                            console.error("Error parsing response JSON: ", e);
-                            alert("Error occurred. Please try again.");
-                        }
-                    } else {
-                        console.error("AJAX request failed with status: ", this.status);
-                        alert("Error occurred. Please try again.");
-                    }
-                }
-            };
-            xhttp.open("POST", "backend_processes/add_testimonial.php", true);
-            xhttp.send(formData);
-        });
-    </script>
 </body>
 
 </html>
