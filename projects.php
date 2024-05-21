@@ -74,7 +74,9 @@ include("backend_processes/insert_project.php");
                      <li class="nav-item active">
                         <a class="nav-link" href="projects.php">Projects</a>
                      </li>
-                    
+                     <li class="nav-item active">
+                        <a class="nav-link" href="teams.php">Teams</a>
+                     </li>
                      <?php
                      
                      ?>

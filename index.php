@@ -65,12 +65,14 @@ require_once("php_config/config.php");
                         <a class="nav-link" href="staff.php">Staff</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="user.php">Users</a>
+                        <a class="nav-link" href="users.php">Users</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="projects.php">Project</a>
                      </li>
-                    
+                     <li class="nav-item active">
+                        <a class="nav-link" href="teams.php">Teams</a>
+                     </li>
                      
                   </ul>
                   <form class="form-inline my-2 my-lg-0">

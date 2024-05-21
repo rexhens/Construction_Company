@@ -59,40 +59,33 @@ include("php_config/config.php");
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="services.html">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="projects.php">Projects</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="teams.php">Teams</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="blog.html">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="testimonial.php">Testimonial</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact Us</a>
-                        </li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <div class="login_text">
-                            <ul>
-                                <li><a href="#">Login</a></li>
-                                <!-- go to the user's account -->
-                                <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </form>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Home</a>
+                     </li>
+                    
+                     <li class="nav-item active">
+                        <a class="nav-link" href="staff.php">Staff</a>
+                     </li>
+                     <li class="nav-item active">
+                        <a class="nav-link" href="users.php">Users</a>
+                     </li>
+                     <li class="nav-item active">
+                        <a class="nav-link" href="projects.php">Project</a>
+                     </li>
+                     <li class="nav-item active">
+                        <a class="nav-link" href="teams.php">Teams</a>
+                     </li>
+                   
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                     <div class="login_text">
+                        <ul>
+                           <li><a href="client_index.php">Logout</a></li>
+                            <!-- go to the user's account -->
+                           <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                        </ul>
+                     </div>
+                  </form>
                 </div>
             </nav>
         </div>
