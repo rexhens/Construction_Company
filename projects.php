@@ -90,7 +90,7 @@ include("backend_processes/insert_project.php");
                   <form class="form-inline my-2 my-lg-0">
                      <div class="login_text">
                         <ul>
-                           <li><a href="#">Login</a></li>
+                           <li><a href="login.php">Login</a></li>
                             <!-- go to the user's account -->
                            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                         </ul>
