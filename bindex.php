@@ -105,74 +105,98 @@ require_once("php_config/config.php");
  <!-- Button to add a new blog post -->
  <button id="addBlogButton" class="btn btn-success">Add Blog Post</button>
 
+
+
  <!-- Form to add a new blog post -->
- <form id="blogForm" class="blog-form" style="display: none;" method="post" action="backend_processes/create_blog.php">
+ <form id="blogForm" class="blog-form" enctype="multipart/form-data" style="display: none;">
+
  <div class="form-group">
-   <label for="blog_title">Blog Title:</label><br>
-   <input type="text" id="blog_title" name="blog_title">
+ <label for="blog_id">Blog ID:</label><br>
+ <input type="text" id="blog_id" name="blog_id">
  </div>
  <div class="form-group">
-   <label for="blog_text">Blog Content:</label><br>
-   <textarea id="blog_text" name="blog_text"></textarea>
+ <label for="blog_title">Blog Title:</label><br>
+ <input type="text" id="blog_title" name="blog_title">
  </div>
  <div class="form-group">
-   <label for="blog_image">Blog Image:</label><br>
-   <input type="file" id="blog_image" name="blog_image">
+ <label for="blog_text">Blog Content:</label><br>
+ <textarea id="blog_text" name="blog_text"></textarea>
+ </div>
+ <div class="form-group">
+ <label for="blog_image">Blog Image:</label><br>
+ <input type="file" id="blog_image" name="blog_image">
  </div>
  <!-- Submit button for adding a blog post -->
  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+ </form>
+<!-- Form to update an existing blog post -->
+<form id="updateForm" class="blog-form" enctype="multipart/form-data" style="display: none;">
+            <div class="form-group">
+                <label for="update_blog_id">Blog ID:</label><br>
+                <input type="text" id="update_blog_id" name="update_blog_id" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="update_blog_title">Blog Title:</label><br>
+                <input type="text" id="update_blog_title" name="update_blog_title" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="update_blog_text">Blog Content:</label><br>
+                <textarea id="update_blog_text" name="update_blog_text" class="form-control"></textarea>
+            </div>
+
+            <!-- Yellow submit button for update -->
+            <button type="submit" class="btn btn-primary btn-yellow">Update</button>
+        </form>
+
+    <!-- Form to delete a blog post -->
+    <form id="deleteForm" class="blog-form" style="display: none;">
+            <div class="form-group">
+                <label for="delete_blog_id">Blog ID:</label><br>
+                <input type="text" id="delete_blog_id" name="delete_blog_id" class="form-control">
+            </div>
+            <!-- Yellow delete button -->
+            <button type="submit" class="btn btn-danger btn-yellow">Delete</button>
+        </form>
+
+    <!-- Buttons for CRUD operations -->
+    <div class="mt-3">
+
+            <button id="showUpdateFormButton" class="btn btn-primary">Update Blog Post</button>
+            <button id="showDeleteFormButton" class="btn btn-danger">Delete Blog Post</button>
+        </div>
+<script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+ <script>
+ $(document).ready(function(){
+ $('#blogForm').submit(function(e){
+ e.preventDefault(); // Prevent default form submission
+ 
+ // Serialize form data
+ var formdata = $(this).serialize();
+ 
+ // Send AJAX request
+ $.ajax({
+ type: 'post',
+ url: "backend_processes/create_blog.php",
+ data: formdata,
+ success: function(response){
+ alert("A new blog post was successfully inserted!");
+ location.reload();
+ },
+ error: function(xhr, status, error){
+ console.error(xhr.responseText);
+ alert("Error: Unable to create blog post.");
+ }
+ });
+ });
+});
 
-
-
- <!-- Submit button for adding a blog post -->
- <button type="submit" class="btn btn-primary">Submit</button>
- </form>
-
- <!-- Form to update an existing blog post -->
- <form id="updateForm" class="blog-form" enctype="multipart/form-data" action="update_blogs.php" method="POST" style="display: none;">
- <div class="form-group">
- <label for="update_blog_title">Blog Title:</label><br>
- <input type="text" id="update_blog_title" name="update_blog_title">
- </div>
- <div class="form-group">
- <label for="update_blog_text">Blog Content:</label><br>
- <textarea id="update_blog_text" name="update_blog_text"></textarea>
- </div>
- <div class="form-group">
- <label for="update_blog_image">Blog Image:</label><br>
- <input type="file" id="update_blog_image" name="update_blog_image">
- </div>
- <!-- Yellow submit button for update -->
- <button type="submit" class="btn btn-primary btn-yellow">Update</button>
- </form>
-
- <!-- Form to delete a blog post -->
- <form id="deleteForm" class="blog-form" style="display: none;">
- <div class="form-group">
- <label for="delete_blog_id">Blog ID:</label><br>
- <input type="text" id="delete_blog_id" name="delete_blog_id">
- </div>
- <!-- Yellow delete button -->
- <button type="submit" class="btn btn-danger btn-yellow">Delete</button>
- </form>
-
- <!-- Buttons for CRUD operations -->
- <div>
- <!-- Button to view all blog posts -->
- <a href="blog.php" class="btn btn-primary">View Blog Posts</a>
- <!-- Button to update a blog post (requires passing blog post ID) -->
- <a href="update_blogs.php?blog_id=1" class="btn btn-secondary">Update Blog Post</a>
- <!-- Button to delete a blog post (requires passing blog post ID) -->
- <a href="delete_blogs.php?blog_id=1" class="btn btn-danger">Delete Blog Post</a>
- </div>
-</div>
-
+ 
+ 
+ </script>
 <script>
- // JavaScript to toggle visibility of the add blog post form
  document.getElementById("addBlogButton").addEventListener("click", function() {
  // Toggle display of the form
  document.getElementById("blogForm").style.display = "block";
@@ -213,78 +237,10 @@ require_once("php_config/config.php");
  });
 </script>
 
- <!-- footer section start here -->
- <div class="footer_section layout_padding">
- <div class="container">
- <div class="row">
- <div class="col-md-12">
- <div class="location_text">
- <ul>
- <li>
- <a href="#"><span class="padding_15"><i class="fa fa-mobile" aria-hidden="true"></i></span> <br>Call +01 1234567890</a>
- </li>
- <li class="active">
- <a href="#"><span class="padding_15"><i class="fa fa-envelope" aria-hidden="true"></i></span> <br>demo@gmail.com</a>
- </li>
- <li>
- <a href="#"><span class="padding_15"><i class="fa fa-map-marker" aria-hidden="true"></i></span> <br>Location</a>
- </li> 
- </ul>
- </div>
- </div>
- </div>
-
-
- <div class="footer_section_2">
- <div class="row">
- <div class="col-md-4">
- <h2 class="useful_text">QUICK LINKS</h2>
- <div class="footer_menu">
- <ul>
- <li><a href="index.php">Home</a></li>
- <li><a href="about.html">About</a></li>
- <li><a href="services.html">Services</a></li>
- <li><a href="projects.php">Projects</a></li>
- <li><a href="testimonial.php">Testimonial</a></li>
- <li><a href="blog.html">Blog</a></li>
- <li><a href="contact.html">Contact Us</a></li>
- </ul>
- </div>
- </div>
- <div class="col-md-4">
- <h2 class="useful_text">Work Portfolio</h2>
- <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem</p>
- </div>
- <div class="col-md-4">
- <h2 class="useful_text">SIGN UP TO OUR NEWSLETTER</h2>
- <div class="form-group">
- <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="comment" name="Enter Your Email"></textarea>
- <div class="subscribe_bt"><a href="#">Subscribe</a></div>
- </div>
- </div>
- </div>
- </div>
- <div class="social_icon">
- <ul>
- <li>
- <a href="https://www.facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
- </li>
- <li>
- <a href="https://x.com"><i class="fa fa-twitter" aria-hidden="true"></i></a>
- </li>
- <li>
- <a href="https://al.linkedin.com"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
- </li>
- <li>
- <a href="https://www.instagram.com"><i class="fa fa-instagram" aria-hidden="true"></i></a>
- </li>
- </ul>
- </div>
- </div>
- </div>
-
- <?php
+ 
+ 
+</body>
+<?php
  include_once("footer.html");
  ?>
-</body>
 </html>
