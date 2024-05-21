@@ -59,21 +59,19 @@ require_once("php_config/config.php");
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto">
                      <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Home</a>
+                        <a class="nav-link" href="client_index.php">Home</a>
                      </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="services.php">Services</a>
-                     </li>
+                     
                      <li class="nav-item">
                         <a class="nav-link" href="about.php">About</a>
                      </li>
-
                      <li class="nav-item">
-                        <a class="nav-link" href="blog.php">Blog</a>
+                        <a class="nav-link" href="testimonial.php">Testimonials</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="testimonial.php">Testimonial</a>
+                        <a class="nav-link" href="blog.php">Blogs</a>
                      </li>
+                    
                      <li class="nav-item">
                         <a class="nav-link" href="contact.php">Contact Us</a>
                      </li>
@@ -82,7 +80,6 @@ require_once("php_config/config.php");
                      <div class="login_text">
                         <ul>
                            <li><a href="login.php">Login</a></li>
-                            <!-- go to the user's account -->
                            <li><a href="login.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                         </ul>
                      </div>

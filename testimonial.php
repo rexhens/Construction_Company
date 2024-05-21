@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
    <?php
-   include_once("head.php");
+   include_once("head_client.php");
    ?>
    <style>
       .rating_text {
