@@ -19,13 +19,21 @@ For any questions or support, please contact me at rexhensb3@gmail.com.
 
 Thank you for using the Construction Company Management System! We hope this project helps you manage your construction business more efficiently.
 
-![Screenshot 2024-06-23 143742](https://github.com/rexhens/Construction_Company/assets/121065866/9ff545b0-80b3-43ba-9740-844538e5bb61)
+![Screenshot 2024-06-23 143742](https://github.com/rexhens/Construction_Company/assets/121065866/695d8e15-8399-4ea0-9b90-aff8c9779cdc)
 
-![Screenshot 2024-06-23 143926](https://github.com/rexhens/Construction_Company/assets/121065866/550fc3e4-c85d-4eff-ac3f-a8f83b313c84)
+![Screenshot 2024-06-23 143813](https://github.com/rexhens/Construction_Company/assets/121065866/468997aa-1c57-44c3-ba10-1c22c38d93f9)
 
-![Screenshot 2024-06-23 143951](https://github.com/rexhens/Construction_Company/assets/121065866/254f448b-a7e7-41ed-a233-80c53c8661d7)
+![Screenshot 2024-06-23 143840](https://github.com/rexhens/Construction_Company/assets/121065866/6f06aa5f-e51d-4e48-bad0-4ca081dcde6f)
 
-![Screenshot 2024-06-23 143825](https://github.com/rexhens/Construction_Company/assets/121065866/f95e961c-038e-4deb-b588-034d2fd824df)
+![Screenshot 2024-06-23 143910](https://github.com/rexhens/Construction_Company/assets/121065866/5f8c4f4f-b8ed-466b-8c4a-fadf3e866641)
 
-![Screenshot 2024-06-23 143910](https://github.com/rexhens/Construction_Company/assets/121065866/acdafaba-9c3f-4007-8a08-f46edbd29fd5)
+![Screenshot 2024-06-23 143926](https://github.com/rexhens/Construction_Company/assets/121065866/b8ac4373-14c2-40b4-82a6-16f2b68ba376)
+
+![Screenshot 2024-06-23 143951](https://github.com/rexhens/Construction_Company/assets/121065866/75fa040b-438c-4253-969f-95808df7c4fc)
+
+
+
+
+
+
 
