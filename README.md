@@ -1,20 +1,21 @@
-Construction Company Management System
-Overview
+# Construction Company Management System
+
+## Overview
 Welcome to the Construction Company Management System repository! This project is designed to streamline the management of construction projects, workers, blog posts, and team divisions. It is built with PHP for the backend and the Bootstrap framework for the frontend.
 
-Features
+## Features
 Projects Management: Create, edit, and view details of construction projects.
 Workers Management: Manage worker information, assignments, and schedules.
 Blog Posts: Publish and manage blog posts related to company updates, project progress, and industry news.
 Team Division: Organize workers into teams and manage team-specific tasks and projects.
 
-Technologies Used
+## Technologies Used
 Backend: PHP
 Frontend: Bootstrap framework, HTML, CSS, JavaScript
 Database: MySQL (XAMPP local server)
 Design Pattern: MVC(Model-View-Controller)
 
-Contact
+## Contact
 For any questions or support, please contact me at rexhensb3@gmail.com.
 
 Thank you for using the Construction Company Management System! We hope this project helps you manage your construction business more efficiently.
